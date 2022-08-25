@@ -1,7 +1,3 @@
-// fetch("actors.json")
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
-
 const jsonData = "actors.json";
 
 fetch(jsonData)
@@ -17,6 +13,16 @@ function showName(actor) {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
   copy.querySelector(".name").textContent = actor.fullname;
+  copy.querySelector(".popup-box").textContent = `${actor.movie}`;
+
+  copy.querySelector(".name").addEventListener("click", PopUp);
 
   document.querySelector("ul").appendChild(copy);
+}
+
+function PopUp() {
+  //   alert("test");
+  console.log("popup");
+
+  document.querySelector(".popup-box").classList.remove("hide");
 }
